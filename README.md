@@ -1,5 +1,5 @@
 
-# 🚦 SimPy & Flask Trafik Simülasyonu
+# SimPy & Flask Trafik Simülasyonu
 
   
 
