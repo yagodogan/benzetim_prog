@@ -1,0 +1,4 @@
+Flask==3.0.0
+pandas==2.1.1
+numpy<2.0.0
+simpy==4.1.1

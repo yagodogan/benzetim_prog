@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  simpy-app:
+    build: .
+    container_name: simpy-traffic-sim
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  #
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped
