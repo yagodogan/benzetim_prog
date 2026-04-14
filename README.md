@@ -35,7 +35,7 @@ Arka planda simülasyon motoru olarak **SimPy** ve veri işleme için **Pandas**
     cd benzetim_prog  
 3-Docker containerini ayaga kaldirma
 
-    docker-compose up --build
+    docker compose up --build
 
 4-Kurulum tamamlandıktan sonra tarayıcınızdan şu adrese gidin:
 
