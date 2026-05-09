@@ -15,9 +15,11 @@ def index():
 @app.route('/simulate', methods=['GET'])
 def simulate():
     try:
-        junction_id = int(request.args.get('junction', 1))
-        capacity    = int(request.args.get('capacity', 2))
-        sim_hours   = int(request.args.get('hours', 5))
+        junction_id   = int(request.args.get('junction', 1))
+        capacity      = int(request.args.get('capacity', 2))
+        sim_hours     = int(request.args.get('hours', 5))
+        # Frontend'den gelen junction_type parametresini yakalıyoruz (varsayılan: roundabout)
+        junction_type = request.args.get('junction_type', 'roundabout')
 
         if not (1 <= capacity <= 10):
             return jsonify({'error': 'Kapasite 1–10 arasında olmalıdır.'}), 400
@@ -36,7 +38,8 @@ def simulate():
         }), 404
 
     try:
-        records = run_simpy_from_csv(csv_path, junction_id, capacity, sim_hours)
+        # junction_type parametresini fonksiyona gönderiyoruz
+        records = run_simpy_from_csv(csv_path, junction_id, capacity, junction_type=junction_type, sim_hours=sim_hours)
     except ValueError as e:
         return jsonify({'error': str(e)}), 400
     except Exception as e:

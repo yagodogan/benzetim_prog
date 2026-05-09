@@ -9,9 +9,34 @@
 <body>
     <div class="container">
         <h1>Entegre Kavşak Simülasyonu</h1>
+
+        <!-- ── Kavşak Türü Seçici ── -->
+        <div class="section-label">Kavşak Türü</div>
+        <div id="junctionTypeCards" class="junction-type-selector"></div>
+
+        <!-- ── Kavşak Önizleme Paneli ── -->
+        <div id="junctionPreviewWrap" class="junction-preview-wrap">
+            <canvas id="junctionPreviewCanvas" width="320" height="200"></canvas>
+            <div id="junctionInfoBar" class="junction-info-bar">
+                <div class="junction-info-title" id="junctionTypeName">—</div>
+                <div class="junction-info-desc"  id="junctionTypeDesc">—</div>
+                <div class="junction-stats-row">
+                    <div class="junction-stat">
+                        <span class="junction-stat-label">Servis Süresi</span>
+                        <span class="junction-stat-val" id="junctionServiceTime">—</span>
+                    </div>
+                    <div class="junction-stat">
+                        <span class="junction-stat-label">Hız Çarpanı</span>
+                        <span class="junction-stat-val" id="junctionSpeedMult">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Diğer Kontroller ── -->
         <div class="controls">
             <div class="control-group">
-                <label>Kavşak</label>
+                <label>Kavşak Verisi</label>
                 <select id="junctionSelect">
                     <option value="1">Kavşak 1</option>
                     <option value="2">Kavşak 2</option>
@@ -30,6 +55,7 @@
             <button id="simBtn" onclick="fetchSimulation()">▶ Simülasyonu Başlat</button>
         </div>
 
+        <!-- ── İstatistikler ── -->
         <div class="stats">
             <div class="stat-box stat-time">
                 <div class="stat-label">Simüle Edilen Saat</div>
@@ -62,7 +88,7 @@
 
         <div class="legend">
             <div class="legend-item"><div class="legend-dot" style="background:#f39c12"></div> Kuyrukta</div>
-            <div class="legend-item"><div class="legend-dot" style="background:#4f8ef7"></div> Kavşakta</div>
+            <div class="legend-item"><div class="legend-dot junction-dot" id="legendJunction" style="background:#4f8ef7"></div> Kavşakta</div>
             <div class="legend-item"><div class="legend-dot" style="background:#2ecc71"></div> Geçti</div>
         </div>
     </div>
